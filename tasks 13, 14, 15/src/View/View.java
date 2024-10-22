@@ -22,6 +22,7 @@ public class View {
                         2 - Завести новое животное
                         3 - Вывести список изученных команд
                         4 - Добавить новую команду
+                        5 - Вывести количество добавленных животных
                         0 - Выход""");
                 choise = in.next();
                 switch (choise) {
@@ -42,6 +43,9 @@ public class View {
                     }
                     case "4" -> {
                         addNewCommand();
+                    }
+                    case "5" -> {
+                        System.out.println(String.format("Животных добавлено: %d", counter.getCount()));
                     }
                     default -> {}
                 }

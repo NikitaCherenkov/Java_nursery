@@ -11,4 +11,8 @@ public class Counter implements AutoCloseable {
     public void increase() {
         count++;
     }
+
+    public int getCount() {
+        return count;
+    }
 }
