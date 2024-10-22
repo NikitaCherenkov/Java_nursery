@@ -6,6 +6,6 @@ import java.time.LocalDate;
 
 public class Donkey extends Pack {
     public Donkey(String name, LocalDate birthday) {
-        super(name, birthday);
+        super("Осёл", name, birthday);
     }
 }
