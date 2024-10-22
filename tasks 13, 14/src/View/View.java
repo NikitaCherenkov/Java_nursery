@@ -1,12 +1,11 @@
 package View;
 
-import Animals.Animal;
 import Animals.Types;
 import Controller.Controller;
+import Controller.Counter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -14,7 +13,7 @@ public class View {
     Controller controller = new Controller();
     final Scanner in = new Scanner(System.in);
     public void begin() {
-        try (in) {
+        try (in; Counter counter = new Counter()) {
             String choise = "";
             while (!Objects.equals(choise, "0")) {
                 System.out.println("""
@@ -30,7 +29,13 @@ public class View {
                         printListAnimals(1);
                     }
                     case "2" -> {
+                    try {
                         createAnimal();
+                        counter.increase();
+                        System.out.println("Успешно добавлено");
+                    } catch (RuntimeException e) {
+                        System.out.println(e.getMessage());
+                    }
                     }
                     case "3" -> {
                         printListCommands();
